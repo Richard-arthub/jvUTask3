@@ -8,6 +8,10 @@ import javax.swing.JTable;
 
 import static java.lang.Math.abs;
 
+/**
+ * Класс для сравнения времени выполнения одинаковых задач - добавление, чтение и удаление элементов - у ArrayList и LinkedList
+ *
+ */
 public class ListTimeComparator
 {
     private ArrayList<String> AL;
@@ -33,6 +37,11 @@ public class ListTimeComparator
         frame.setVisible(true);
     }
 
+    /**
+     * Метод позволяет сравнить время добавления элементов в списки
+     *
+     * @param iterations количество элементов, с которым будет проводиться сравнение
+     */
     public void addingOperation(int iterations)
     {
         double ALtime = 0, LLtime = 0;
@@ -51,6 +60,11 @@ public class ListTimeComparator
         LL.clear();
     }
 
+    /**
+     * Метод позволяет сравнить время чтения элементов из списков
+     *
+     * @param iterations количество элементов, с которым будет проводиться сравнение
+     */
     public void gettingOperation(int iterations)
     {
         double ALtime = 0, LLtime = 0;
@@ -72,6 +86,11 @@ public class ListTimeComparator
         LL.clear();
     }
 
+    /**
+     * Метод позволяет сравнить время удаления элементов из списков
+     *
+     * @param iterations количество элементов, с которым будет проводиться сравнение
+     */
     public void deletingOperation(int iterations)
     {
         double ALtime = 0, LLtime = 0;

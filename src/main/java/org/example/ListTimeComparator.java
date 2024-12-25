@@ -9,7 +9,7 @@ import javax.swing.JTable;
 import static java.lang.Math.abs;
 
 /**
- * Класс для сравнения времени выполнения одинаковых задач - добавление, чтение и удаление элементов - у ArrayList и LinkedList
+ * Класс для сравнения времени выполнения одинаковых задач - добавления, чтения и удаления элементов - у ArrayList и LinkedList
  *
  */
 public class ListTimeComparator

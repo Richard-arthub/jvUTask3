@@ -6,10 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import static java.lang.Math.abs;
+
 public class ListTimeComparator
 {
-    private ArrayList<Character> AL;
-    private LinkedList<Character> LL;
+    private ArrayList<String> AL;
+    private LinkedList<String> LL;
 
     public ListTimeComparator()
     {
@@ -33,8 +35,61 @@ public class ListTimeComparator
 
     public void addingOperation(int iterations)
     {
-        //add, measure time
-        plot("Adding", iterations, 0, 0);
-        // delete nodes
+        double ALtime = 0, LLtime = 0;
+
+        ALtime = System.currentTimeMillis();
+        for(int i = 0; i < iterations; i++) { AL.add("Dancing Waves"); }
+        ALtime = abs(System.currentTimeMillis() - ALtime);
+
+        LLtime = System.currentTimeMillis();
+        for(int i = 0; i < iterations; i++) { LL.add("Dancing Waves"); }
+        LLtime = abs(System.currentTimeMillis() - LLtime);
+
+        plot("Adding", iterations, ALtime, LLtime);
+
+        AL.clear();
+        LL.clear();
+    }
+
+    public void gettingOperation(int iterations)
+    {
+        double ALtime = 0, LLtime = 0;
+
+        for(int i = 0; i < iterations; i++) { AL.add("Dancing Waves"); }
+        for(int i = 0; i < iterations; i++) { LL.add("Dancing Waves"); }
+
+        ALtime = System.currentTimeMillis();
+        for(int i = 0; i < iterations; i++) { AL.get(i); }
+        ALtime = abs(System.currentTimeMillis() - ALtime);
+
+        LLtime = System.currentTimeMillis();
+        for(int i = 0; i < iterations; i++) { LL.get(i); }
+        LLtime = abs(System.currentTimeMillis() - LLtime);
+
+        plot("Getting", iterations, ALtime, LLtime);
+
+        AL.clear();
+        LL.clear();
+    }
+
+    public void deletingOperation(int iterations)
+    {
+        double ALtime = 0, LLtime = 0;
+
+        for(int i = 0; i < iterations; i++) { AL.add("Dancing Waves"); }
+        for(int i = 0; i < iterations; i++) { LL.add("Dancing Waves"); }
+
+        ALtime = System.currentTimeMillis();
+        for(int i = 0; i < iterations; i++) { AL.remove(0); }
+        ALtime = abs(System.currentTimeMillis() - ALtime);
+
+        LLtime = System.currentTimeMillis();
+        for(int i = 0; i < iterations; i++) { LL.remove(0); }
+        LLtime = abs(System.currentTimeMillis() - LLtime);
+
+        plot("Deleting", iterations, ALtime, LLtime);
+
+        AL.clear();
+        LL.clear();
     }
 }

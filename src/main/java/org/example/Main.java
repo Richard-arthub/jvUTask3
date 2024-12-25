@@ -4,6 +4,8 @@ public class Main {
     public static void main(String[] args)
     {
         ListTimeComparator comparator = new ListTimeComparator();
-        comparator.addingOperation(5);
+        comparator.addingOperation(10000);
+        comparator.gettingOperation(10000);
+        comparator.deletingOperation(10000);
     }
 }
